@@ -6,13 +6,18 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/countersController.js"></script>
+    <script src="js/counterFactory.js"></script>
+
   </head>
   <body>
     <main>
-      <section ng-controller="countersCtrl as counters">
-        <button ng-click="counters.increment()">+</button>
-        {{ counters.count }}
-        <button ng-click="counters.decrement()">-</button>
+      <section ng-controller="countersCtrl as controller">
+        <button ng-click="controller.addCounter();">Add a Counter</button>
+        <div ng-repeat="counter in controller.counters">
+          <button ng-click="counter.increment();">+</button>
+          {{ counter.count }}
+          <button ng-click="counter.decrement();">-</button>
+        </div>
       </section>
     </main>
   </body>

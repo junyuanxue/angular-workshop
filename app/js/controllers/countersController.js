@@ -1,9 +1,9 @@
-countersApp.controller("countersCtrl", function(){
+countersApp.controller("countersCtrl", ["counterFactory", function(counterFactory){
   var self = this;
 
-  self.count = 0;
+  self.counters = [];
 
-  self.increment = function() {
-    self.count++;
-  }
-});
+  self.addCounter = function() {
+    self.counters.push(new counterFactory());
+  };
+}]);
